@@ -12,7 +12,20 @@ namespace ToDoUp.Model
 
         List<DB.Service> servicesDb = new List<DB.Service> { };
 
-        public List<Servis>  servis = new List<Servis>();
+        /// <summary>
+        /// Список  сервисов  вью
+        /// </summary>
+        public List<Servis>  Servis = new List<Servis>();
+
+        /// <summary>
+        /// Сервевис из  бд
+        /// </summary>
+        public DB.Service ServiceOne { get; set; }
+
+        public ServisesContoller( Model.Servis servis )
+        {
+            ServiceOne = entities.Service.FirstOrDefault(x => x.Title == servis.Name);
+        }
 
         public ServisesContoller ()
         {
@@ -20,11 +33,21 @@ namespace ToDoUp.Model
             
             foreach (var s in servicesDb )
             {
-                servis.Add(new Servis(s));
+                Servis.Add(new Servis(s));
             }
         }
 
+        public  void Save ()
+        {
+            entities.SaveChanges();
+        }
        
 
+        public  int Add ()
+        {
+            entities.Service.Add(new DB.Service());
+            entities.SaveChanges();
+            return entities.Service.Last().ID;
+        }
     }
 }

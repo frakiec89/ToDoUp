@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ToDoUp.Model
 {
-    class Servis
+    public class Servis
     {
             public string Name { get; set; }
             public string PriceEndTime { get; set; }
@@ -28,7 +28,7 @@ namespace ToDoUp.Model
 
             PriceEndTime = GetRealPrice(service.Discount.Value, service.Cost, service.DurationInSeconds);
             Discont = GetDisconte(service.Discount);
-            FilePath = service.MainImagePath ;
+            FilePath = service.MainImagePath.TrimStart() ;
 
             buttinRemove = "Visible";
             ButtonChange = "Visible";

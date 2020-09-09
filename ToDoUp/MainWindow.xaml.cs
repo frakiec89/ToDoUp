@@ -33,14 +33,22 @@ namespace ToDoUp
         {
             ServisesContoller contoller = new ServisesContoller();
 
-            lbMain.ItemsSource = contoller.servis;
+            lbMain.ItemsSource = contoller.Servis;
         }
 
         private void btChange_Click(object sender, RoutedEventArgs e)
         {
             Button button = sender as Button;
             var s = button.DataContext as Servis;
-            MessageBox.Show(button.Content.ToString() + " " + s.Name);
+
+            Forms.ChangeEndAddServis window1 = new Forms.ChangeEndAddServis(s);
+            window1.ShowDialog();
+            if (window1.DialogResult==true)
+            {
+                ServisesContoller contoller = new ServisesContoller();
+                lbMain.ItemsSource = contoller.Servis;
+            }
+           
         }
 
         private void btRemove_Click(object sender, RoutedEventArgs e)
@@ -49,7 +57,12 @@ namespace ToDoUp
             var s = button.DataContext as Servis;
             MessageBox.Show(s.FilePath);
         }
-      
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+            Forms.ChangeEndAddServis addServis = new Forms.ChangeEndAddServis();
+            addServis.ShowDialog();
+        }
     }
 
     
