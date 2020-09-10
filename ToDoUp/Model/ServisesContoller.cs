@@ -37,17 +37,18 @@ namespace ToDoUp.Model
             }
         }
 
+        public  ServisesContoller ( DB.Service service )
+        {
+            entities.Service.Add(service);
+            Save();
+        }
+
         public  void Save ()
         {
             entities.SaveChanges();
         }
        
 
-        public  int Add ()
-        {
-            entities.Service.Add(new DB.Service());
-            entities.SaveChanges();
-            return entities.Service.Last().ID;
-        }
+       
     }
 }

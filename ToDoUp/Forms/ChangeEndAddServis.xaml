@@ -22,7 +22,9 @@
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <Image Height="100" Source=  "{Binding MainImagePath }"/>
+            <Border BorderBrush="Black" BorderThickness="20" >
+            <Image  x:Name="image" Height="100" Source=  "{Binding MainImagePath }" MouseLeftButtonDown="image_MouseLeftButtonDown" />
+            </Border>
             <Label Content="Название"/>
             <TextBox  Text="{Binding Title}"/>
             <Label Content="Цена"/>

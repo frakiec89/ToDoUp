@@ -26,9 +26,13 @@ namespace ToDoUp.Model
             else
                 RealPrice = null;
 
+           
             PriceEndTime = GetRealPrice(service.Discount.Value, service.Cost, service.DurationInSeconds);
+            
             Discont = GetDisconte(service.Discount);
-            FilePath = service.MainImagePath.TrimStart() ;
+
+            if (!string.IsNullOrWhiteSpace( service.MainImagePath ))
+            FilePath = @"pack://application:,,,/"+ service.MainImagePath.TrimStart() ;
 
             buttinRemove = "Visible";
             ButtonChange = "Visible";

@@ -44,8 +44,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -64,6 +66,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Page Include="Forms\ChangeEndAddServis.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -148,6 +159,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Window1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Servis.cs" />
@@ -197,42 +212,9 @@
       <DependentUpon>Model1.edmx</DependentUpon>
       <LastGenOutput>Model1.cs</LastGenOutput>
     </Content>
-    <Resource Include="Forms\Услуги салона красоты\Экспресс SPA.png" />
-    <Resource Include="Forms\Услуги салона красоты\Экспресс-педикюр.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Шугаринг.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Укрепление ногтей гелем.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\стрижка.png" />
-    <Resource Include="Forms\Услуги салона красоты\Стоун-терапия.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Снятие ресниц.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Ресницы.png" />
-    <Resource Include="Forms\Услуги салона красоты\Прокол ушей пистолетом.png" />
-    <Resource Include="Forms\Услуги салона красоты\Прессотерапия.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Полировка ногтей.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Покрытие ногтей гель-лаком.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Парафинотерапия.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Окрашивание бровей.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\ногти.png" />
-    <Resource Include="Forms\Услуги салона красоты\Моделирование ресниц.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Мезотерапия.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\массаж.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Контурная пластика.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Комбинированный маникюр.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Классический маникюр.png" />
-    <Resource Include="Forms\Услуги салона красоты\ИК-сауна.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Европейский маникюр.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Депиляция воском.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Демакияж.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Декорирование нарощенных ресниц стразами.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\Гречишный массаж.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\брови.png" />
-    <Resource Include="Forms\Услуги салона красоты\soliarij.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\piling.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\mask.jpeg" />
-    <Resource Include="Forms\Услуги салона красоты\man.png" />
-    <Resource Include="Forms\Услуги салона красоты\makeup.jpg" />
-    <Resource Include="Forms\Услуги салона красоты\face.png" />
-    <Resource Include="Forms\Услуги салона красоты\96.png" />
-    <Resource Include="Forms\Услуги салона красоты\122454.png" />
+    <Resource Include="Услуги салона красоты\No.jpg.bmp">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Услуги салона красоты\122454.png" />
     <Resource Include="Услуги салона красоты\96.png" />
     <Resource Include="Услуги салона красоты\face.png" />
