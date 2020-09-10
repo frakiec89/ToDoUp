@@ -8,9 +8,9 @@ namespace ToDoUp.Model
 {
     class ServisesContoller
     {
-        DB.DETLT2020Entities entities = new DB.DETLT2020Entities();
+        private DB.DETLT2020Entities entities = new DB.DETLT2020Entities();
 
-        List<DB.Service> servicesDb = new List<DB.Service> { };
+        private List<DB.Service> servicesDb = new List<DB.Service> { };
 
         /// <summary>
         /// Список  сервисов  вью
@@ -22,11 +22,19 @@ namespace ToDoUp.Model
         /// </summary>
         public DB.Service ServiceOne { get; set; }
 
+
+        /// <summary>
+        /// загрузка одного  сервиса
+        /// </summary>
+        /// <param name="servis"></param>
         public ServisesContoller( Model.Servis servis )
         {
             ServiceOne = entities.Service.FirstOrDefault(x => x.Title == servis.Name);
         }
 
+        /// <summary>
+        /// загрузка всех сервисов
+        /// </summary>
         public ServisesContoller ()
         {
             servicesDb = entities.Service.ToList();
@@ -37,12 +45,19 @@ namespace ToDoUp.Model
             }
         }
 
+        /// <summary>
+        /// Добавляет  в бд
+        /// </summary>
+        /// <param name="service"></param>
         public  ServisesContoller ( DB.Service service )
         {
             entities.Service.Add(service);
             Save();
         }
 
+        /// <summary>
+        /// Сохранияет  изменения 
+        /// </summary>
         public  void Save ()
         {
             entities.SaveChanges();
