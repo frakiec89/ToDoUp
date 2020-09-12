@@ -58,7 +58,15 @@
     </ListBox>
 
         <Button x:Name="Add" Content="Add" Grid.Column="0" Grid.Row="1" Margin="10,10,10,10" Click="Add_Click"></Button>
-        
+
+        <StackPanel Grid.Row="1" Grid.Column="2">      
+            <TextBox Height="20" x:Name="poisk" TextChanged="poisk_TextChanged" />
+            <Button x:Name="up" Content="По возростанию"  Click="up_Click" />
+            <Button x:Name="down" Content="По убыванию"  Click="down_Click" />
+            <Button x:Name="cells" Content="по цене"  Click="cells_Click" />
+            <Button x:Name="dick" Content="По скидке"  Click="dick_Click"  />
+        </StackPanel>
+
     </Grid>
 
 </Window>

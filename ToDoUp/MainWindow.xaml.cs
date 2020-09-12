@@ -22,6 +22,7 @@ namespace ToDoUp
     /// </summary>
     public partial class MainWindow : Window
     {
+        ServisesContoller contoller;
 
         public MainWindow()
         {
@@ -31,9 +32,9 @@ namespace ToDoUp
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            ServisesContoller contoller = new ServisesContoller();
+            contoller = new ServisesContoller();
 
-            lbMain.ItemsSource = contoller.Servis;
+           Refresh( contoller.Servis);
         }
 
         private void btChange_Click(object sender, RoutedEventArgs e)
@@ -45,10 +46,9 @@ namespace ToDoUp
             window1.ShowDialog();
             if (window1.DialogResult==true)
             {
-                ServisesContoller contoller = new ServisesContoller();
-                lbMain.ItemsSource = contoller.Servis;
+                contoller = new ServisesContoller();
+                Refresh(contoller.Servis);
             }
-           
         }
 
         private void btRemove_Click(object sender, RoutedEventArgs e)
@@ -62,6 +62,36 @@ namespace ToDoUp
         {
             Forms.ChangeEndAddServis addServis = new Forms.ChangeEndAddServis();
             addServis.ShowDialog();
+        }
+
+        private void Refresh ( List<Model.Servis> servis )
+        {
+            lbMain.ItemsSource = servis;
+        }
+
+        private void poisk_TextChanged(object sender, TextChangedEventArgs e)
+        {
+          Refresh( contoller.Servis.Where(x => x.Name.StartsWith(poisk.Text)).ToList());
+        }
+
+        private void up_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh(contoller.Servis.OrderBy(x=>x.Name).ToList());
+        }
+        
+        private void down_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh(contoller.Servis.OrderByDescending(x=>x.Name).ToList());
+        }
+
+        private void dick_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh(contoller.Servis.OrderByDescending(x => x.Discont).ToList());
+        }
+
+        private void cells_Click(object sender, RoutedEventArgs e)
+        {
+            Refresh(contoller.Servis.OrderByDescending(x => x.RealPrice).ToList());
         }
     }
 
